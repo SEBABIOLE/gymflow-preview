@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SportsGym - Reservá tus clases</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,21 +19,27 @@
             --primary: #C81E1E;
             --secondary: #8F1414;
             --accent: #E8A9A9;
-            --bg-light: #F7F5F5;
-            --bg-cream: #EFE9E9;
+            --bg-light: #F6F5F3;
+            --bg-cream: #ECEAE7;
             --text-dark: #1A1A1A;
-            --text-light: #5B5555;
+            --text-light: #605C58;
             --success: #4CAF7D;
             --error: #8F1414;
             --shadow: rgba(20, 20, 20, 0.15);
+            --ink: #141212;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-cream) 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-cream) 100%);
             min-height: 100vh;
             color: var(--text-dark);
             line-height: 1.6;
+        }
+
+        h1, h2, .section-title, .menu-title, .turno-header, .modal-title, .slot-time {
+            font-family: 'Oswald', 'Inter', sans-serif;
+            letter-spacing: 0.02em;
         }
 
         .container {
@@ -41,34 +50,53 @@
 
         header {
             text-align: center;
-            padding: 30px 0;
-            background: white;
+            padding: 36px 24px 32px;
+            background: linear-gradient(150deg, var(--ink) 0%, #2a0a0a 55%, var(--primary) 130%);
             border-radius: 20px;
-            box-shadow: 0 4px 15px var(--shadow);
+            box-shadow: 0 14px 34px rgba(200, 30, 30, 0.28), 0 4px 15px rgba(0, 0, 0, 0.25);
             margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% -20%, rgba(255, 255, 255, 0.12), transparent 60%);
+            pointer-events: none;
         }
 
         .logo {
-            width: 80px;
-            height: 80px;
-            background: var(--primary);
-            border-radius: 50%;
-            margin: 0 auto 15px;
+            width: 84px;
+            height: 84px;
+            margin: 0 auto 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 40px;
+            filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4));
+        }
+
+        .logo svg {
+            width: 100%;
+            height: 100%;
         }
 
         h1 {
-            color: var(--primary);
-            font-size: 28px;
-            margin-bottom: 10px;
+            color: #ffffff;
+            font-size: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            position: relative;
         }
 
         .subtitle {
-            color: var(--text-light);
-            font-size: 16px;
+            color: #E9AFAF;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            position: relative;
         }
 
         /* Login Section */
@@ -114,17 +142,21 @@
             color: white;
             border: none;
             border-radius: 10px;
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 16px;
+            font-family: 'Oswald', 'Inter', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
             cursor: pointer;
             transition: all 0.3s;
             margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(200, 30, 30, 0.3);
         }
 
         .btn:hover {
             background: var(--secondary);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px var(--shadow);
+            box-shadow: 0 8px 22px rgba(200, 30, 30, 0.4);
         }
 
         .btn:disabled {
@@ -392,7 +424,20 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <div class="logo">🏋️</div>
+            <div class="logo">
+                <svg viewBox="0 0 512 512" role="img" aria-label="SportsGym">
+                    <circle cx="256" cy="256" r="256" fill="#ffffff"/>
+                    <circle cx="256" cy="256" r="230" fill="#111111"/>
+                    <circle cx="256" cy="256" r="230" fill="none" stroke="#C81E1E" stroke-width="14"/>
+                    <g transform="translate(256 266)" fill="none" stroke="#ffffff" stroke-width="26" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="-100" y1="0" x2="100" y2="0"/>
+                        <rect x="-150" y="-46" width="40" height="92" rx="10" fill="#C81E1E" stroke="none"/>
+                        <rect x="110" y="-46" width="40" height="92" rx="10" fill="#C81E1E" stroke="none"/>
+                        <rect x="-176" y="-26" width="20" height="52" rx="6" fill="#ffffff" stroke="none"/>
+                        <rect x="156" y="-26" width="20" height="52" rx="6" fill="#ffffff" stroke="none"/>
+                    </g>
+                </svg>
+            </div>
             <h1 id="gymNombre">SportsGym</h1>
             <p class="subtitle" id="gymTagline">Entrenamiento de la Fuerza</p>
         </header>
