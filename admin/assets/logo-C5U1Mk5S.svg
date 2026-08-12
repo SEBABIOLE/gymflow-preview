@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="SportsGym">
+  <circle cx="256" cy="256" r="256" fill="#111111"/>
+  <circle cx="256" cy="256" r="230" fill="none" stroke="#C81E1E" stroke-width="14"/>
+  <g transform="translate(256 266)" fill="none" stroke="#ffffff" stroke-width="26" stroke-linecap="round" stroke-linejoin="round">
+    <!-- barbell placeholder icon, en el estilo del logo real (mancuerna + escudo) -->
+    <line x1="-100" y1="0" x2="100" y2="0"/>
+    <rect x="-150" y="-46" width="40" height="92" rx="10" fill="#C81E1E" stroke="none"/>
+    <rect x="110" y="-46" width="40" height="92" rx="10" fill="#C81E1E" stroke="none"/>
+    <rect x="-176" y="-26" width="20" height="52" rx="6" fill="#ffffff" stroke="none"/>
+    <rect x="156" y="-26" width="20" height="52" rx="6" fill="#ffffff" stroke="none"/>
+  </g>
+</svg>
