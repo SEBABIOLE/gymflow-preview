@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Acceso directo · SportsGym</title>
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F6F5F3;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      color: #1A1A1A;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 32px;
+      padding: 40px 28px 32px;
+      max-width: 390px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(200,30,30,0.13);
+    }
+
+    .icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
+      background: linear-gradient(145deg, #C81E1E, #8F1414);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
+      margin: 0 auto 24px;
+      box-shadow: 0 6px 20px rgba(200,30,30,0.3);
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .sub {
+      font-size: 15px;
+      color: #605C58;
+      margin-bottom: 26px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 17px;
+      border-radius: 18px;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.1s, opacity 0.15s;
+      margin-bottom: 12px;
+      text-decoration: none;
+    }
+
+    .btn:active { transform: scale(0.97); opacity: 0.9; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #C81E1E, #8F1414);
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(143,20,20,0.35);
+    }
+
+    .btn-secondary {
+      background: #ECEAE7;
+      color: #8F1414;
+    }
+
+    .steps {
+      margin-top: 16px;
+      text-align: left;
+      background: #F6F5F3;
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+    }
+
+    .steps p {
+      font-size: 14px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+      color: #3a3a3a;
+    }
+
+    .steps p:last-child { margin-bottom: 0; }
+
+    .note {
+      font-size: 12px;
+      color: #8a8a8a;
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    .top-alert {
+      background: #FBEAEA;
+      color: #8F1414;
+      border: 1px solid #E8A9A9;
+      font-size: 13px;
+      border-radius: 14px;
+      padding: 10px 12px;
+      margin-bottom: 18px;
+      line-height: 1.4;
+    }
+
+    .share-svg {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      margin: 0 2px -2px;
+    }
+
+    .hidden { display: none; }
+
+    .mini {
+      font-size: 13px;
+      color: #605C58;
+      margin-top: 6px;
+      line-height: 1.45;
+    }
+
+    #state-done,
+    #state-main,
+    #state-android-help,
+    #state-ios-help,
+    #state-open-browser {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="state-done">
+    <div class="icon">✅</div>
+    <h1>¡Listo!</h1>
+    <p class="sub">Buscá el ícono de SportsGym en tu pantalla principal.</p>
+    <a href="./" class="btn btn-primary">Abrir</a>
+  </div>
+
+  <div class="card" id="state-main">
+    <div class="icon">💪</div>
+    <div id="wa-alert" class="top-alert hidden">
+      Estás dentro de WhatsApp. Para agregar el acceso, primero abrí esta página en tu navegador.
+    </div>
+
+    <h1>SportsGym</h1>
+    <p class="sub">Poné este acceso en la pantalla principal de tu teléfono.</p>
+
+    <button id="btn-android" class="btn btn-primary" type="button">
+      Agregar en Android
+    </button>
+
+    <button id="btn-ios" class="btn btn-secondary" type="button">
+      Agregar en iPhone
+    </button>
+
+    <a href="./" class="btn btn-secondary">Abrir la web</a>
+
+    <p class="note">Elegí el botón según tu teléfono.</p>
+  </div>
+
+  <div class="card" id="state-android-help">
+    <div class="icon">🤖</div>
+    <h1>Android</h1>
+    <p class="sub">Hacelo así para poner el acceso en tu pantalla.</p>
+
+    <div class="steps">
+      <p><strong>1.</strong> Tocá el menú de tu navegador <strong>(⋮)</strong></p>
+      <p><strong>2.</strong> Tocá <strong>“Agregar a pantalla principal”</strong></p>
+      <p><strong>3.</strong> Tocá <strong>“Agregar”</strong></p>
+    </div>
+
+    <a href="./" class="btn btn-primary">Abrir la web</a>
+    <button class="btn btn-secondary" type="button" onclick="show('main')">Volver</button>
+  </div>
+
+  <div class="card" id="state-ios-help">
+    <div class="icon">🍎</div>
+    <h1>iPhone</h1>
+    <p class="sub">Hacelo así para poner el acceso en tu pantalla.</p>
+
+    <div class="steps">
+      <p>
+        <strong>1.</strong> Abrí esta página en <strong>Safari</strong>
+      </p>
+      <p>
+        <strong>2.</strong> Tocá el botón compartir
+        <svg class="share-svg" viewBox="0 0 24 24" fill="none" stroke="#C81E1E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+          <polyline points="16 6 12 2 8 6"/>
+          <line x1="12" y1="2" x2="12" y2="15"/>
+        </svg>
+      </p>
+      <p><strong>3.</strong> Tocá <strong>“Agregar a pantalla de inicio”</strong></p>
+    </div>
+
+    <a href="./" class="btn btn-primary">Abrir la web</a>
+    <button class="btn btn-secondary" type="button" onclick="show('main')">Volver</button>
+  </div>
+
+  <div class="card" id="state-open-browser">
+    <div class="icon">🌐</div>
+    <h1>Abrila en tu navegador</h1>
+    <p class="sub">Desde WhatsApp no siempre se puede agregar el acceso directo.</p>
+
+    <div class="steps">
+      <p><strong>1.</strong> Tocá el menú de WhatsApp o del navegador interno</p>
+      <p><strong>2.</strong> Elegí <strong>“Abrir en navegador”</strong></p>
+      <p><strong>3.</strong> Después volvé a esta página y tocá tu botón</p>
+    </div>
+
+    <a href="./" class="btn btn-primary">Abrir la web</a>
+    <button class="btn btn-secondary" type="button" onclick="show('main')">Volver</button>
+    <p class="mini">Si tu teléfono pregunta con qué app abrirla, elegí Chrome o Safari.</p>
+  </div>
+
+  <script>
+    const APP_URL = "./";
+    const ua = navigator.userAgent || "";
+    const isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    const isAndroid = /Android/i.test(ua);
+    const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+    const isInWhatsApp = /WhatsApp/i.test(ua);
+    const isStandalone =
+      window.matchMedia("(display-mode: standalone)").matches ||
+      window.navigator.standalone === true;
+
+    let deferredPrompt = null;
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+    });
+
+    window.addEventListener("appinstalled", () => {
+      show("done");
+    });
+
+    function show(id) {
+      ["done", "main", "android-help", "ios-help", "open-browser"].forEach((name) => {
+        const el = document.getElementById("state-" + name);
+        if (el) el.style.display = "none";
+      });
+
+      const target = document.getElementById("state-" + id);
+      if (target) target.style.display = "block";
+    }
+
+    async function handleAndroid() {
+      if (isInWhatsApp) {
+        show("open-browser");
+        return;
+      }
+
+      if (deferredPrompt) {
+        try {
+          deferredPrompt.prompt();
+          const choice = await deferredPrompt.userChoice;
+          deferredPrompt = null;
+
+          if (choice && choice.outcome === "accepted") {
+            show("done");
+            return;
+          }
+        } catch (err) {}
+      }
+
+      show("android-help");
+    }
+
+    function handleIOS() {
+      if (isInWhatsApp) {
+        show("open-browser");
+        return;
+      }
+
+      if (!isSafari) {
+        show("ios-help");
+        return;
+      }
+
+      show("ios-help");
+    }
+
+    document.getElementById("btn-android").addEventListener("click", handleAndroid);
+    document.getElementById("btn-ios").addEventListener("click", handleIOS);
+
+    if (isStandalone) {
+      show("done");
+    } else {
+      show("main");
+      if (isInWhatsApp) {
+        document.getElementById("wa-alert").classList.remove("hidden");
+      }
+    }
+
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js").catch(() => {});
+    }
+  </script>
+</body>
+</html>
